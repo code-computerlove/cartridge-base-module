@@ -7,7 +7,7 @@
 
 Clone this repository
 ```sh
-git@github.com:cartridge/base-module.git
+git clone git@github.com:cartridge/base-module.git
 ```
 
 Rename the `base-module` directory for your new module eg:
