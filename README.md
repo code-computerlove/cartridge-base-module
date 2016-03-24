@@ -7,7 +7,7 @@
 
 Clone this repository, giving the name of the new module - prefixed with the word `cartridge-`. This will be the name of the folder the source is cloned into.
 ```sh
-git https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
+git clone https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
 ```
 
 Update the git origin to match your new repository eg:
