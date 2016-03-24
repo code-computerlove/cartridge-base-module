@@ -1,4 +1,4 @@
-# Base Module
+# Base Module [![Build Status][travis-image]][travis-url]
 
 > Starting point for a base [Cartridge](https://github.com/cartridge/cartridge) module
 
@@ -44,3 +44,8 @@ npm install
 ```
 
 And do some coding!
+
+
+
+[travis-url]: https://travis-ci.org/cartridge/base-module
+[travis-image]: https://travis-ci.org/cartridge/base-module.svg?branch=master
