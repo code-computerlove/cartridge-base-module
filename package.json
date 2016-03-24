@@ -22,7 +22,8 @@
 	},
 	"scripts": {
 		"postinstall": "node scripts/postinstall.js",
-		"preuninstall": "node scripts/preuninstall.js"
+		"preuninstall": "node scripts/preuninstall.js",
+	    "test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
 		"cartridge-module-util": "~0.1.1"
