@@ -3,6 +3,10 @@ language: node_js
 node_js:
 	- stable
 	- "0.12"
+install:
+  - echo "@TODO do CI things"
 cache:
   directories:
 	- node_modules
+git:
+  depth: 1
