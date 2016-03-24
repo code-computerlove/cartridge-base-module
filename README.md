@@ -5,21 +5,15 @@
 ## Using for a new module
 [Create a new empty repository](https://github.com/new) for your expansion pack.
 
-Clone this repository
+Clone this repository, giving the name of the new module. This should be prefixed with the word `cartridge-`
 ```sh
-git clone git@github.com:cartridge/base-module.git
+git https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
 ```
 
-Rename the `base-module` directory for your new module eg:
-```sh
-mv base-module cartridge-my-module
-```
-
-Update the git origin to match your new repository eg:
+If you haven't already, create a new repository for your module and update the git origin to match eg.
 
 ```sh
-cd cartridge-my-module
-git remote set-url origin git@github.com:cartridge/test.git
+git remote set-url origin https://github.com/cartridge/cartridge-my-module.git
 git remote -v
 ```
 
@@ -34,7 +28,7 @@ And do some coding!
 ## Development on the base module
 Clone repository
 ```sh
-git@github.com:cartridge/base-module.git
+git clone https://github.com/cartridge/base-module.git
 ```
 
 Install dependencies
