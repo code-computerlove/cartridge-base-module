@@ -5,7 +5,7 @@
 ## Using for a new module
 [Create a new empty repository](https://github.com/new) for your expansion pack.
 
-Clone this repository, giving the name of the new module. This should be prefixed with the word `cartridge-`. This will be the name of the folder the source is cloned into.
+Clone this repository, giving the name of the new module - prefixed with the word `cartridge-`. This will be the name of the folder the source is cloned into.
 ```sh
 git https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
 ```
