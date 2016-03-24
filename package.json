@@ -23,7 +23,7 @@
 	"scripts": {
 		"postinstall": "node scripts/postinstall.js",
 		"preuninstall": "node scripts/preuninstall.js",
-	    "test": "echo \"Error: no test specified\" && exit 1"
+	    "test": "echo \"Error: no test specified\" && exit 0"
 	},
 	"dependencies": {
 		"cartridge-module-util": "~0.1.1"
