@@ -2,7 +2,7 @@
 
 > Starting point for a base [Cartridge](https://github.com/cartridge/cartridge) module
 
-## Using for a new module
+## Setup for a new module
 [Create a new empty repository](https://github.com/new) for your expansion pack.
 
 Clone this repository, giving the name of the new module - prefixed with the word `cartridge-`. This will be the name of the folder the source is cloned into.
@@ -18,6 +18,16 @@ git remote set-url origin https://github.com/cartridge/cartridge-my-module.git
 git remote -v
 ```
 
+Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run when installing dependencies.
+
+```sh
+# Linux / OS X
+export NODE_ENV=development
+
+# Windows
+set NODE_ENV=production
+```
+
 Install dependencies
 ```sh
 npm install
@@ -30,6 +40,16 @@ And do some coding!
 Clone repository
 ```sh
 git clone https://github.com/cartridge/base-module.git
+```
+
+Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run when installing dependencies.
+
+```sh
+# Linux / OS X
+export NODE_ENV=development
+
+# Windows
+set NODE_ENV=production
 ```
 
 Install dependencies
