@@ -49,7 +49,7 @@ Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run 
 export NODE_ENV=development
 
 # Windows
-set NODE_ENV=production
+set NODE_ENV=development
 ```
 
 Install dependencies
