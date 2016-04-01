@@ -31,7 +31,7 @@ function runGulpTask(options, callback) {
 
     // gulp.stderr.on('data', function(data) {
     // 	console.log(new Buffer(data).toString('utf8'));
-    })
+    // })
 
     gulp.on('close', function() {
         callback();
