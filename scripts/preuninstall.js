@@ -17,7 +17,7 @@ function projectConfigDeletePaths(config) {
 }
 
 // Run through module uninstallation
-cartridgeUtil.removeFromRc(packageConfig.name)
+cartridgeUtil.removeFromRc()
 	.then(function() {
 		return cartridgeUtil.modifyProjectConfig(projectConfigDeletePaths);
 	})
