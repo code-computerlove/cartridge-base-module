@@ -26,7 +26,7 @@
 	    "test": "echo \"Error: no test specified\" && exit 0"
 	},
 	"dependencies": {
-		"cartridge-module-util": "~0.2.1",
+		"cartridge-module-util": "^0.3.0",
 		"yargs": "^4.3.2"
 	},
 	"devDependencies": {
