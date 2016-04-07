@@ -15,14 +15,17 @@ Setup your local git repo
 ```sh
 # Go into the cloned repo
 cd cartridge-my-module
-# Git doesn't allow shallow clones to be pushed to.
-# Here we are making a new repo from the cloned source
+# Reconstruct git repo to remove base-module git history
 rm -rf .git
 git init
+git add .
+git commit -m "feat: Initial commit"
 # Update the git origin to match your new repository eg:
 git remote set-url origin https://github.com/cartridge/cartridge-my-module.git
 # Show the new origin URL
 git remote -v
+# After reconstruction above we need to force push to remote
+git push -u --force origin master
 ```
 
 Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run when installing dependencies.
