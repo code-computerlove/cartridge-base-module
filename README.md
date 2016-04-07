@@ -10,11 +10,18 @@ Clone this repository, giving the name of the new module - prefixed with the wor
 git clone https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
 ```
 
-Update the git origin to match your new repository eg:
+Setup your local git repo
 
 ```sh
+# Go into the cloned repo
 cd cartridge-my-module
+# Git doesn't allow shallow clones to be pushed to.
+# Here we are making a new repo from the cloned source
+rm -rf .git
+git init
+# Update the git origin to match your new repository eg:
 git remote set-url origin https://github.com/cartridge/cartridge-my-module.git
+# Show the new origin URL
 git remote -v
 ```
 
