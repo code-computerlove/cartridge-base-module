@@ -7,7 +7,7 @@
 
 Clone this repository, giving the name of the new module - prefixed with the word `cartridge-`. This will be the name of the folder the source is cloned into.
 ```sh
-git clone https://github.com/cartridge/base-module.git --depth=1 cartridge-my-module
+git clone https://github.com/cartridge/base-module.git cartridge-my-module
 ```
 
 Setup your local git repo
@@ -15,17 +15,17 @@ Setup your local git repo
 ```sh
 # Go into the cloned repo
 cd cartridge-my-module
-# Reconstruct git repo to remove base-module git history
+# Reconstruct repo to remove base-module git history
 rm -rf .git
 git init
 git add .
 git commit -m "feat: Initial commit"
-# Update the git origin to match your new repository eg:
-git remote set-url origin https://github.com/cartridge/cartridge-my-module.git
-# Show the new origin URL
+# Add the remote origin URL to the new repo
+git remote add origin https://github.com/cartridge/cartridge-my-module.git
+# Check new origin URL is set
 git remote -v
-# After reconstruction above we need to force push to remote
-git push -u --force origin master
+# Push to the new repo
+git push -u origin master
 ```
 
 Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run when installing dependencies.
