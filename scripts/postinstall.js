@@ -11,8 +11,13 @@ var TASK_NAME = 'base';
 
 // Transform function for adding paths
 function projectConfigAddPaths(config) {
-	config.paths.src[TASK_NAME]  = config.dirs.src  + '/example_dir/';
-	config.paths.dest[TASK_NAME] = config.dirs.dest + '/example_dir/';
+	if(!config.paths.src.hasOwnProperty(TASK_NAME)) {
+		config.paths.src[TASK_NAME]  = config.dirs.src  + '/example_dir/';
+	}
+
+	if(!config.paths.dest.hasOwnProperty(TASK_NAME)) {
+		config.paths.dest[TASK_NAME]  = config.dirs.dest  + '/example_dir/';
+	}
 
 	return config;
 }
