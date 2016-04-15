@@ -23,7 +23,8 @@
 	"scripts": {
 		"postinstall": "node scripts/postinstall.js",
 		"preuninstall": "node scripts/preuninstall.js",
-		"test": "echo \"Error: no test specified\" && exit 0"
+		"test": "node run lint",
+		"lint": "eslint task.js _config/*.js scripts/*.js"
 	},
 	"dependencies": {
 		"cartridge-module-util": "~0.4.0",
