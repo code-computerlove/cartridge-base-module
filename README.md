@@ -77,7 +77,7 @@ Try and adhere as closely as possible to the [Angular commit messages guidelines
 ```sh
 npm install -g commitizen
 ```
-Now, simply use `git cz` instead of `git commit` when committing.
+Now, simply use `git cz` instead of `git commit` when committing. This also supports commit message signing.
 
 
 [travis-url]: https://travis-ci.org/cartridge/base-module
