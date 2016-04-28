@@ -36,6 +36,9 @@ export NODE_ENV=development
 
 # Windows
 set NODE_ENV=development
+
+# Windows Powershell
+$env:NODE_ENV="development"
 ```
 
 Install dependencies
@@ -61,7 +64,7 @@ export NODE_ENV=development
 # Windows Command Prompt
 set NODE_ENV=development
 # Windows Powershell
-$env:NODE_ENV = "development"
+$env:NODE_ENV="development"
 ```
 
 Install dependencies
