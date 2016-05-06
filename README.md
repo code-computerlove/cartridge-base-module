@@ -36,6 +36,9 @@ export NODE_ENV=development
 
 # Windows
 set NODE_ENV=development
+
+# Windows Powershell
+$env:NODE_ENV="development"
 ```
 
 Install dependencies
@@ -58,8 +61,10 @@ Set `NODE_ENV`to `development` - this is so none of the postinstall scripts run 
 # Linux / OS X
 export NODE_ENV=development
 
-# Windows
+# Windows Command Prompt
 set NODE_ENV=development
+# Windows Powershell
+$env:NODE_ENV="development"
 ```
 
 Install dependencies
