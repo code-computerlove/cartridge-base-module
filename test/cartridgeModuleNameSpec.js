@@ -12,11 +12,6 @@ var MOCK_PROJECT_DIR = path.join(process.cwd(), 'test', 'mock-project');
 
 process.chdir(MOCK_PROJECT_DIR);
 
-function cleanUp() {
-	// fs.remove('/path/to/dir/or/file');
-	// fs.removeSync('/path/to/dir/or/file');
-}
-
 /**
  * Test the inner workings of the module
  * Check if tasks have been registered with gulp
@@ -57,6 +52,11 @@ describe('As a gulpfile', function() {
 
 describe('As a user of the cartridge-base module', function() {
 	var gulprunner = require(path.resolve(process.cwd(), 'gulprunner.js'));
+
+	function cleanUp() {
+		// fs.remove('/path/to/dir/or/file');
+		// fs.removeSync('/path/to/dir/or/file');
+	}
 
 	this.timeout(10000);
 
