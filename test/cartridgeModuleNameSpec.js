@@ -3,6 +3,7 @@
 var path   = require('path');
 var chai   = require('chai');
 var expect = chai.expect;
+var fs = require('fs-extra');
 
 chai.use(require('chai-fs'));
 chai.should();
@@ -10,6 +11,16 @@ chai.should();
 var MOCK_PROJECT_DIR = path.join(process.cwd(), 'test', 'mock-project');
 
 process.chdir(MOCK_PROJECT_DIR);
+
+function cleanUp() {
+	// fs.remove('/path/to/dir/or/file');
+	// fs.removeSync('/path/to/dir/or/file');
+}
+
+/**
+ * Test the inner workings of the module
+ * Check if tasks have been registered with gulp
+ */
 
 describe('As a gulpfile', function() {
 	describe('when a task is included', function() {
@@ -39,6 +50,11 @@ describe('As a gulpfile', function() {
 	});
 });
 
+/**
+ * Test the output of the module.
+ * Check if files / directories are created
+ */
+
 describe('As a user of the cartridge-base module', function() {
 	var gulprunner = require(path.resolve(process.cwd(), 'gulprunner.js'));
 
@@ -47,17 +63,18 @@ describe('As a user of the cartridge-base module', function() {
 	describe('when runing `gulp`', function() {
 
 		before(function(done) {
+			//Uncomment one of the lines below
 			// Simulate running gulp WITH --prod flag
-			gulprunner.setProd();
+			// gulprunner.setProd();
 			// Simulate running gulp WITHOUT --prod flag
-			gulprunner.setDev();
+			// gulprunner.setDev();
+
 			//Run the gulp task defined in gulprunner.js
 			gulprunner.run(done);
 		});
 
-		after(function() {
-			cleanUp();
-		});
+		//Clean up function
+		after(cleanup);
 
 		it('should generate a file', function() {
 			// expect('/path/to/dir').to.be.a.file();
