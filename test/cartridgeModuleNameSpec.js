@@ -31,16 +31,16 @@ describe('As a gulpfile', function() {
 			expect(basicrunner.tasks.default.length).to.equal(1);
 		});
 
-		it('should add the base-module task to the default group', function() {
-			expect(basicrunner.tasks.default[0]).to.equal('base-module');
+		it('should add the base task to the default group', function() {
+			expect(basicrunner.tasks.default[0]).to.equal('base');
 		});
 
 		it('should add one task to the watch group', function() {
 			expect(basicrunner.tasks.watch.length).to.equal(1);
 		});
 
-		it('should add the watch:base-module task to the watch group', function() {
-			expect(basicrunner.tasks.watch[0]).to.equal('watch:base-module');
+		it('should add the watch:base task to the watch group', function() {
+			expect(basicrunner.tasks.watch[0]).to.equal('watch:base');
 		});
 	});
 });
@@ -74,7 +74,7 @@ describe('As a user of the cartridge-base module', function() {
 		});
 
 		//Clean up function
-		after(cleanup);
+		after(cleanUp);
 
 		it('should generate a file', function() {
 			// expect('/path/to/dir').to.be.a.file();

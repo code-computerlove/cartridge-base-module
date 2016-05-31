@@ -5,5 +5,9 @@
 		"dest": "public/_client/",
 		"src": "_source/"
 	},
-	"paths": {}
+	"paths": {
+		"dest": {
+			"base": "/"
+		}
+	}
 }
