@@ -1,78 +1,85 @@
-var spawn = require('child_process').spawn;
-var path = require('path');
-var fs = require('fs-extra');
-var chai = require('chai');
+/*eslint-env node, mocha */
+
+var path   = require('path');
+var chai   = require('chai');
 var expect = chai.expect;
+var fs = require('fs-extra');
 
 chai.use(require('chai-fs'));
 chai.should();
 
-var ROOT_DIR = process.cwd();
 var MOCK_PROJECT_DIR = path.join(process.cwd(), 'test', 'mock-project');
-var MODULE_NAME_HERE_SRC_DIR = path.join(MOCK_PROJECT_DIR, '_source', 'module');
-var MODULE_NAME_HERE_DEST_DIR = path.join(MOCK_PROJECT_DIR, 'public', '_client', 'images');
 
 process.chdir(MOCK_PROJECT_DIR);
 
-//Delete generated files/folders
-function cleanUp() {
-	// fs.removeSync(/* path here */);
-}
+/**
+ * Test the inner workings of the module
+ * Check if tasks have been registered with gulp
+ */
 
-function runGulpTask(options, callback) {
+describe('As a gulpfile', function() {
+	describe('when a task is included', function() {
+		var basicrunner;
 
-    var gulp = spawn('gulp', options)
+		before(function(done) {
+			basicrunner = require(path.resolve(process.cwd(), 'basicrunner.js'));
 
-    //Log gulp task output for debugging purposes
-    //
-    // gulp.stdout.on('data', function(data) {
-    // 	console.log(new Buffer(data).toString('utf8'));
-    // })
+			done();
+		});
 
-    // gulp.stderr.on('data', function(data) {
-    // 	console.log(new Buffer(data).toString('utf8'));
-    // })
+		it('should add one task to the default group', function() {
+			expect(basicrunner.tasks.default.length).to.equal(1);
+		});
 
-    gulp.on('close', function() {
-        callback();
-    });
+		it('should add the base task to the default group', function() {
+			expect(basicrunner.tasks.default[0]).to.equal('base');
+		});
 
-}
+		it('should add one task to the watch group', function() {
+			expect(basicrunner.tasks.watch.length).to.equal(1);
+		});
 
-describe('As a user of the cartridge-images module', function() {
+		it('should add the watch:base task to the watch group', function() {
+			expect(basicrunner.tasks.watch[0]).to.equal('watch:base');
+		});
+	});
+});
+
+/**
+ * Test the output of the module.
+ * Check if files / directories are created
+ */
+
+describe('As a user of the cartridge-base module', function() {
+	var gulprunner = require(path.resolve(process.cwd(), 'gulprunner.js'));
+
+	function cleanUp() {
+		// fs.remove('/path/to/dir/or/file');
+		// fs.removeSync('/path/to/dir/or/file');
+	}
 
 	this.timeout(10000);
 
-	describe('when `gulp task-name` is run WITHOUT production flag', function() {
+	describe('when runing `gulp`', function() {
 
 		before(function(done) {
-			runGulpTask(['task-name'], done)
-		})
+			//Uncomment one of the lines below
+			// Simulate running gulp WITH --prod flag
+			// gulprunner.setProd();
+			// Simulate running gulp WITHOUT --prod flag
+			// gulprunner.setDev();
 
-		after(function() {
-			cleanUp();
-		})
+			//Run the gulp task defined in gulprunner.js
+			gulprunner.run(done);
+		});
 
-		it('should expect true to be true', function() {
-			expect(true).to.be.a.true
-		})
+		//Clean up function
+		after(cleanUp);
+
+		it('should generate a file', function() {
+			// expect('/path/to/dir').to.be.a.file();
+		});
 
 	})
 
-	describe('when `gulp task-name` is run WITH production flag', function() {
-
-		before(function(done) {
-			runGulpTask(['task-name', '--prod'], done)
-		})
-
-		after(function() {
-			cleanUp();
-		})
-
-		it('should expect true to be true', function() {
-			expect(true).to.be.a.true
-		})
-
-	})
-
-})
+});
